@@ -27,7 +27,8 @@
             </div>
 
             <!-- Form Section -->
-            <form action="#" method="POST" class="login-form" id="registerForm">
+            <form action="#" method="POST" class="login-form" id="registerForm" onsubmit="cekRegister(event)"
+                novalidate>
                 <div class="form-grid">
                     <!-- Nama Lengkap -->
                     <div class="input-group">
@@ -90,9 +91,17 @@
                     <!-- Kelas -->
                     <div class="input-group">
                         <label for="kelas">Kelas</label>
-                        <div class="input-wrapper">
+                        <div class="input-wrapper select-wrapper">
                             <i class="fa-solid fa-graduation-cap input-icon"></i>
-                            <input type="text" id="kelas" name="kelas" placeholder="Contoh: XII RPL 1" required>
+                            <select id="kelas" name="kelas" required>
+                                <option value="" disabled selected>Pilih Kelas</option>
+                                <option value="XI PPLG 1">XI PPLG 1</option>
+                                <option value="XI PPLG 2">XI PPLG 2</option>
+                                <option value="XI PPLG 3">XI PPLG 3</option>
+                                <option value="XI PPLG 4">XI PPLG 4</option>
+                                <option value="XI PPLG 5">XI PPLG 5</option>
+                                <option value="XI PPLG 6">XI PPLG 6</option>
+                            </select>
                         </div>
                     </div>
 
@@ -133,6 +142,14 @@
                                 required></textarea>
                         </div>
                     </div>
+                </div>
+
+                <!-- Checkbox Syarat & Ketentuan -->
+                <div class="terms-group">
+                    <label class="remember-me">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span>Saya menyetujui syarat dan ketentuan yang berlaku</span>
+                    </label>
                 </div>
 
                 <!-- Submit Button -->
@@ -178,21 +195,50 @@
             });
         }
 
+        function tampilkanPesan() {
+            alert('Selamat belajar JavaScript!');
+        }
+
         // Form Submit Handler & Password Matching Validation
-        document.getElementById('registerForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+        function cekRegister(e) {
+            if (e) e.preventDefault();
+
+            const kelasInput = document.getElementById('kelas');
+            if (!kelasInput.value) {
+                alert('Silakan pilih kelas!');
+                kelasInput.focus();
+                return false;
+            }
+
             const pass = passwordInput.value;
             const confirmPass = confirmPasswordInput.value;
+
+            if (pass.length < 8) {
+                alert('Password minimal 8 karakter!');
+                passwordInput.focus();
+                return false;
+            }
 
             if (pass !== confirmPass) {
                 alert('Konfirmasi kata sandi tidak cocok! Silakan periksa kembali.');
                 confirmPasswordInput.focus();
-                return;
+                return false;
+            }
+
+            const terms = document.getElementById('terms');
+            if (!terms.checked) {
+                alert('Anda harus menyetujui syarat dan ketentuan yang berlaku!');
+                terms.focus();
+                return false;
             }
 
             const fullname = document.getElementById('fullname').value;
             alert('Pendaftaran Berhasil! Selamat bergabung, ' + fullname);
-        });
+            tampilkanPesan();
+            return true;
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', cekRegister);
     </script>
 </body>
 
