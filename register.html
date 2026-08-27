@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Registrasi</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="register-wrapper">
+        <div class="login-card">
+            <!-- Header Section -->
+            <div class="login-header">
+                <h1 class="login-title">REGISTER</h1>
+                <div class="logo-container">
+                    <img src="Asset/logo.png" alt="Logo" id="logo" class="logo-img">
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <form action="#" method="POST" class="login-form" id="registerForm">
+                <div class="form-grid">
+                    <!-- Nama Lengkap -->
+                    <div class="input-group">
+                        <label for="fullname">Nama Lengkap</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-id-card input-icon"></i>
+                            <input type="text" id="fullname" name="fullname" placeholder="Masukkan nama lengkap" required
+                                autocomplete="name">
+                        </div>
+                    </div>
+
+                    <!-- Username -->
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <input type="text" id="username" name="username" placeholder="Masukkan username" required
+                                autocomplete="username">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="email" name="email" placeholder="contoh@email.com" required
+                                autocomplete="email">
+                        </div>
+                    </div>
+
+                    <!-- Tanggal Lahir -->
+                    <div class="input-group">
+                        <label for="birthdate">Tanggal Lahir</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-calendar-days input-icon"></i>
+                            <input type="date" id="birthdate" name="birthdate" required>
+                        </div>
+                    </div>
+
+                    <!-- Jenis Kelamin -->
+                    <div class="input-group">
+                        <label for="gender">Jenis Kelamin</label>
+                        <div class="input-wrapper select-wrapper">
+                            <i class="fa-solid fa-venus-mars input-icon"></i>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Pilih jenis kelamin</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Kelas -->
+                    <div class="input-group">
+                        <label for="kelas">Kelas</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-graduation-cap input-icon"></i>
+                            <input type="text" id="kelas" name="kelas" placeholder="Contoh: XII RPL 1" required>
+                        </div>
+                    </div>
+
+                    <!-- Kata Sandi -->
+                    <div class="input-group">
+                        <label for="password">Kata Sandi</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock input-icon"></i>
+                            <input type="password" id="password" name="password" placeholder="Buat kata sandi" required
+                                autocomplete="new-password">
+                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Lihat password">
+                                <i class="fa-solid fa-eye" id="eyeIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Konfirmasi Kata Sandi -->
+                    <div class="input-group">
+                        <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-shield-halved input-icon"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword"
+                                placeholder="Ulangi kata sandi" required autocomplete="new-password">
+                            <button type="button" class="toggle-password" id="toggleConfirmPassword"
+                                aria-label="Lihat konfirmasi password">
+                                <i class="fa-solid fa-eye" id="eyeConfirmIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Alamat (Full Width) -->
+                    <div class="input-group full-width">
+                        <label for="alamat">Alamat Lengkap</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class="fa-solid fa-location-dot input-icon"></i>
+                            <textarea id="alamat" name="alamat" placeholder="Masukkan alamat lengkap Anda" rows="3"
+                                required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit">
+                    <span>Daftar Akun</span>
+                    <i class="fa-solid fa-user-plus"></i>
+                </button>
+            </form>
+
+            <!-- Bottom Redirect Link -->
+            <div class="form-footer">
+                <p>Sudah punya akun? <a href="index.html" class="link-redirect">Masuk Sekarang</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Password Visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        if (togglePassword && passwordInput && eyeIcon) {
+            togglePassword.addEventListener('click', function () {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                eyeIcon.classList.toggle('fa-eye');
+                eyeIcon.classList.toggle('fa-eye-slash');
+            });
+        }
+
+        // Toggle Confirm Password Visibility
+        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const eyeConfirmIcon = document.getElementById('eyeConfirmIcon');
+
+        if (toggleConfirmPassword && confirmPasswordInput && eyeConfirmIcon) {
+            toggleConfirmPassword.addEventListener('click', function () {
+                const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmPasswordInput.setAttribute('type', type);
+                eyeConfirmIcon.classList.toggle('fa-eye');
+                eyeConfirmIcon.classList.toggle('fa-eye-slash');
+            });
+        }
+
+        // Form Submit Handler & Password Matching Validation
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const pass = passwordInput.value;
+            const confirmPass = confirmPasswordInput.value;
+
+            if (pass !== confirmPass) {
+                alert('Konfirmasi kata sandi tidak cocok! Silakan periksa kembali.');
+                confirmPasswordInput.focus();
+                return;
+            }
+
+            const fullname = document.getElementById('fullname').value;
+            alert('Pendaftaran Berhasil! Selamat bergabung, ' + fullname);
+        });
+    </script>
+</body>
+
+</html>

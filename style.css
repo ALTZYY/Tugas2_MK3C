@@ -92,7 +92,7 @@ body::after {
     font-weight: 800;
     letter-spacing: 2px;
     background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-    /* -webkit-background-clip: text; */
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 16px;
     text-transform: uppercase;
@@ -268,4 +268,164 @@ body::after {
 
 .btn-submit:active {
     transform: translateY(0);
+}
+
+/* Register Page & Grid Layout */
+.register-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 720px;
+    padding: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+/* Select Dropdown Styling */
+.input-wrapper select {
+    width: 100%;
+    padding: 14px 40px 14px 48px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.input-wrapper select option {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+.input-wrapper select:focus {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.input-wrapper select:focus + .input-icon {
+    color: #818cf8;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '\f107';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 16px;
+    color: #64748b;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.select-wrapper:focus-within::after {
+    color: #818cf8;
+}
+
+/* Date Picker Styling */
+.input-wrapper input[type="date"] {
+    color-scheme: dark;
+}
+
+.input-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.8);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.input-wrapper input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* Textarea Styling */
+.textarea-wrapper {
+    align-items: flex-start;
+}
+
+.textarea-wrapper .input-icon {
+    top: 16px;
+}
+
+.textarea-wrapper textarea {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+    resize: vertical;
+    min-height: 90px;
+    font-family: inherit;
+}
+
+.textarea-wrapper textarea::placeholder {
+    color: #64748b;
+}
+
+.textarea-wrapper textarea:focus {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.textarea-wrapper textarea:focus + .input-icon {
+    color: #818cf8;
+}
+
+/* Bottom Form Footer Link */
+.form-footer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.link-redirect {
+    color: #818cf8;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+    transition: color 0.3s ease;
+}
+
+.link-redirect:hover {
+    color: #a5b4fc;
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+
+    .login-card {
+        padding: 32px 20px;
+    }
 }
