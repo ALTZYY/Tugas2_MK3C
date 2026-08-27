@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Registrasi</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylelogdanres.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,8 +34,8 @@
                         <label for="fullname">Nama Lengkap</label>
                         <div class="input-wrapper">
                             <i class="fa-solid fa-id-card input-icon"></i>
-                            <input type="text" id="fullname" name="fullname" placeholder="Masukkan nama lengkap" required
-                                autocomplete="name">
+                            <input type="text" id="fullname" name="fullname" placeholder="Masukkan nama lengkap"
+                                required autocomplete="name">
                         </div>
                     </div>
 
@@ -70,14 +70,20 @@
 
                     <!-- Jenis Kelamin -->
                     <div class="input-group">
-                        <label for="gender">Jenis Kelamin</label>
-                        <div class="input-wrapper select-wrapper">
-                            <i class="fa-solid fa-venus-mars input-icon"></i>
-                            <select id="gender" name="gender" required>
-                                <option value="" disabled selected>Pilih jenis kelamin</option>
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
+                        <label>Jenis Kelamin</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="Laki-laki" required>
+                                <span class="radio-custom"></span>
+                                <i class="fa-solid fa-mars"></i>
+                                <span>Laki-laki</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="Perempuan" required>
+                                <span class="radio-custom"></span>
+                                <i class="fa-solid fa-venus"></i>
+                                <span>Perempuan</span>
+                            </label>
                         </div>
                     </div>
 
@@ -97,7 +103,8 @@
                             <i class="fa-solid fa-lock input-icon"></i>
                             <input type="password" id="password" name="password" placeholder="Buat kata sandi" required
                                 autocomplete="new-password">
-                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Lihat password">
+                            <button type="button" class="toggle-password" id="togglePassword"
+                                aria-label="Lihat password">
                                 <i class="fa-solid fa-eye" id="eyeIcon"></i>
                             </button>
                         </div>
